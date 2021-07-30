@@ -1,0 +1,23 @@
+﻿@model List<P1DbContext.Models.Location>
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+
+<div class="text-lg-left">
+    <h2>Which location would you like to shop at today?</h2>
+
+    <form asp-action="LocationSelected">
+        <label for="stores">Choose a store </label>
+        <select name="storeLocationId" id="storeLocationId">
+            @foreach (var obj in Model)
+            {
+                <option value="@obj.LocationId">@obj.LocationName</option>
+            }
+        </select>
+
+        <input type="submit" asp-controller="Account" asp-action="LocationSelected" value="Shop Here" />
+
+    </form>
+</div>

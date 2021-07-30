@@ -1,0 +1,50 @@
+﻿@model List<P1DbContext.Models.InventoryProduct>
+
+@{
+    ViewData["Title"] = "Browse Products";
+}
+
+<div class="text-lg-left">
+
+    <form asp-action="BrowseProducts">
+        <label for="stores">Categories: </label>
+        <select name="storeCategoryName" id="storeCategoryName">
+            <option value="any" selected>any</option>
+            @foreach (string catName in ViewBag.categoryList)
+            {
+                <option value="@catName">@catName</option>
+            }
+        </select>
+
+        <input type="submit" asp-controller="Main" asp-action="BrowseProducts" value="Search" />
+
+    </form>
+
+
+    <table id="storeProducts" width="70%">
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity Available</th>
+
+        </tr>
+
+        @foreach (P1DbContext.Models.InventoryProduct obj in Model)
+        {
+            <tr>
+                <td><a class="mx-auto" asp-action="Details" asp-route-selectedProductString=@Newtonsoft.Json.JsonConvert.SerializeObject(obj)>@Html.DisplayFor(modelItem => obj.ProductName)</a></td>
+                <td>$@Html.DisplayFor(modelItem => obj.Price)</td>
+                <td>@Html.DisplayFor(modelItem => obj.NumberProducts)</td>
+
+            </tr>
+        }
+
+    </table>
+
+    <br />
+    <br />
+    <button class="btn-light"><a class="btn" asp-area="" asp-controller="Main" asp-action="ShopMenu">Return to Shop Menu</a></button>
+    <br />
+    <br />
+    <button class="btn-light"><a class="btn" asp-area="" asp-controller="Main" asp-action="DisplayCart">View Cart</a></button>
+</div>

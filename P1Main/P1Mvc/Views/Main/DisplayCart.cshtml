@@ -1,0 +1,42 @@
+﻿@model Dictionary<P1DbContext.Models.Product, int>
+
+@{
+    ViewData["Title"] = "View Cart";
+}
+
+<div class="text-lg-left">
+
+    <table id="storeProducts" width="70%">
+        <tr>
+
+            <th>Product</th>
+            <th>Individual Price</th>
+            <th>Quantity</th>
+
+        </tr>
+
+        @foreach (var obj in Model)
+        {
+            <tr>
+
+                <td>@Html.DisplayFor(modelItem => obj.Key.ProductName)</td>
+                <td>$@Html.DisplayFor(modelItem => obj.Key.Price)</td>
+                <td>@Html.DisplayFor(modelItem => obj.Value)</td>
+
+            </tr>
+        }
+
+    </table>
+
+    <div>
+        Your total is $@ViewBag.orderTotal
+    </div>
+
+    <br />
+    <br />
+    <button class="btn-light"><a class="btn" asp-area="" asp-controller="Main" asp-action="ShopMenu">Return to Shop Menu</a></button>
+    <br />
+    <br />
+    <button class="btn-light"><a class="btn" asp-area="" asp-controller="Main" asp-action="Checkout">Checkout</a></button>
+
+</div>

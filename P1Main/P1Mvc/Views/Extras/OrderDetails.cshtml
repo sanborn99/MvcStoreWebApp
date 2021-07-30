@@ -1,0 +1,33 @@
+﻿@model Dictionary<P1DbContext.Models.Product, int>
+
+@{
+    ViewData["Title"] = "Order Details";
+}
+
+
+<h1>Order Id: @ViewBag.orderDetails.OrderId</h1>
+<br />
+<div>Customer Id: @ViewBag.orderDetails.CustomerId</div>
+<div>Location Id: @ViewBag.orderDetails.LocationId</div>
+<div> Order Time: @ViewBag.orderDetails.OrderTime</div>
+<div>Order Total: $@ViewBag.orderTotal</div>
+<br />
+<br />
+
+<table id="OrderedProducts" width="70%">
+    <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+    </tr>
+
+    @foreach (var obj in Model)
+    {
+<tr>
+    <td>@Html.DisplayFor(modelItem => obj.Key.ProductName)</td>
+    <td>@Html.DisplayFor(modelItem => obj.Key.Price)</td>
+    <td>@Html.DisplayFor(modelItem => obj.Value)</td>
+</tr>
+    }
+
+</table>

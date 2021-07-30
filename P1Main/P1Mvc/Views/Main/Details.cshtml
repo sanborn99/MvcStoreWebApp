@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "Selected Product";
+}
+
+<body>
+
+    <div class="col-6">
+        <div>
+            <h2>@ViewBag.selectedProduct.ProductName : $@ViewBag.selectedProduct.Price</h2>
+            <p>@ViewBag.selectedProduct.Description</p>
+            <br />
+            <div>You currently have @ViewBag.numInCart in your cart</div>
+            <form asp-action="AddToCart">
+                <input type="hidden" id="productId" name="productId" value=@ViewBag.selectedProduct.ProductId>
+                <label for="quantity">Quantity (Max : @ViewBag.maxAmount):</label>
+                <input type="number" id="quantity" name="quantity" min="0" max="@ViewBag.maxAmount">
+                <input type="submit" value="Add to Cart">
+
+            </form>
+
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <button class="btn-light"><a class="btn" asp-area="" asp-controller="Main" asp-action="BrowseProducts">Return to Products List</a></button>
+    <br />
+    <br />
+    <button class="btn-light"><a class="btn" asp-area="" asp-controller="Main" asp-action="DisplayCart">View Cart</a></button>
+</body>
+
+
+

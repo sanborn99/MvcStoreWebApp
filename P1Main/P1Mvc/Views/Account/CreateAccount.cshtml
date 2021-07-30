@@ -1,0 +1,41 @@
+﻿@model P1DbContext.Models.Customer
+
+@{
+    ViewData["Title"] = "New Account";
+}
+
+<body>
+    <div class="text-center">
+        <h1 class="display-4">Welcome to the Login screen</h1>
+        <p>Put some kind of login box here?</p>
+    </div>
+    <div class="col-6">
+        <div>
+            <form asp-action="CreateAccountLanding">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label"></label>
+                    <input asp-for="LastName" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="UserName" class="control-label"></label>
+                    <input asp-for="UserName" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" type="Password" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Register" class="btn btn-primary" />
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+</body>

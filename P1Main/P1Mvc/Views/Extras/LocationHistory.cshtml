@@ -1,0 +1,44 @@
+﻿@model List<P1DbContext.Models.Order>
+
+@{
+ViewData["Title"] = "Browse Products";
+}
+
+<div class="text-lg-left">
+
+    <form asp-action="LocationHistory">
+        <label for="stores">Categories: </label>
+        <select name="locationId" id="locationId">
+            <option value="-1" selected>any</option>
+            @foreach (P1DbContext.Models.Location loc in ViewBag.locationList)
+            {
+        <option value="@loc.LocationId">@loc.LocationName : @loc.LocationId</option>
+            }
+        </select>
+
+        <input type="submit" asp-controller="Extras" asp-action="LocationHistory" value="Search" />
+
+    </form>
+
+
+    <table id="LocationOrders" width="70%">
+        <tr>
+            <th>Order Id</th>
+            <th>Customer Id</th>
+            <th>LocationId</th>
+
+        </tr>
+
+        @foreach (P1DbContext.Models.Order obj in Model)
+        {
+        <tr>
+            <td><a class="mx-auto" asp-action="OrderDetails" asp-route-selectedOrderId="@obj.OrderId">@Html.DisplayFor(modelItem => obj.OrderId)</a></td>
+            <td>@Html.DisplayFor(modelItem => obj.CustomerId)</td>
+            <td>@Html.DisplayFor(modelItem => obj.LocationId)</td>
+
+        </tr>
+        }
+
+    </table>
+
+</div>

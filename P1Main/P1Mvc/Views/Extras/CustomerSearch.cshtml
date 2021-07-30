@@ -1,0 +1,40 @@
+﻿@model List<P1DbContext.Models.Customer>
+@{
+    ViewData["Title"] = "Customer Search";
+}
+
+<div class="text-lg-left">
+    <h4>Click a Customer's id to view their order history</h4>
+    <div>Enter Any information you have to narrow search results. (inputs are not required)</div>
+    <form asp-action="CustomerSearch">
+        <label for="fName">First Name</label>
+        <input type="text" id="fName" name="fName">
+        <label for="lName">Last Name</label>
+        <input type="text" id="lName" name="lName">
+        <input type="submit" value="Search">
+    </form>
+
+
+    <table id="Customers" width="70%">
+        <tr>
+            <th>Customer Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+
+        </tr>
+
+        @foreach (P1DbContext.Models.Customer obj in Model)
+        {
+    <tr>
+        <td><a class="mx-auto" asp-action="CustomerOrderDetails" asp-route-selectedCustomerId="@obj.CustomerId">@Html.DisplayFor(modelItem => obj.CustomerId)</a></td>
+        <td>@Html.DisplayFor(modelItem => obj.FirstName)</td>
+        <td>@Html.DisplayFor(modelItem => obj.LastName)</td>
+        <td>@Html.DisplayFor(modelItem => obj.UserName)</td>
+
+    </tr>
+        }
+
+    </table>
+
+</div>

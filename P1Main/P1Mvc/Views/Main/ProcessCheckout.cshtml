@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "Selected Product";
+}
+
+
+
+<div>
+    <h1>Your order was succesfully placed.</h1>
+
+    <div>Order Id:       @ViewBag.thisOrder.OrderId</div>
+    <div>Order Date:     @ViewBag.thisOrder.OrderTime</div>
+    <div>Customer Id:    @ViewBag.thisOrder.CustomerId</div>
+    <div>Location Id:    @ViewBag.thisOrder.LocationId</div>
+    <br />
+    <div>Thank you for shopping with us!</div>
+
+<div>
+    <br />
+    <br />
+    <button class="btn-light"><a class="btn" asp-area="" asp-controller="Home" asp-action="Index">Return To Home Page</a></button>
+</div>

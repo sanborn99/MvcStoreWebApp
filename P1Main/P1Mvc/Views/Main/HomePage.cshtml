@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Logic Menu";
+}
+
+
+
+<div class="text-left">
+    <br />
+    <br />
+    <button class="btn-light"><a class="btn" asp-area="" asp-controller="Main" asp-action="ShopMenu">Shop At @ViewBag.currentLocation.LocationName</a></button>
+    <br />
+    <br />
+    <button class="btn-light"><a class="btn" asp-area="" asp-controller="Main" asp-action="ChangeLocations">Change Locations</a></button>
+    <br />
+    <br />
+</div>
