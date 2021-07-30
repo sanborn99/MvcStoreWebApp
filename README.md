@@ -12,4 +12,4 @@ This is a ASP.NET Core MVC project utilizing Entity Framework Core to create a W
 * Made use of Razor Views to dynamically create views to serve to client.
 
 ## Environment / Technologies
-* C# Programming, ASP.NET MVC, ADO.NET Entity Framework, Testing Process / SDLC, HTML5, CSS3, Defect Logging, Microsoft SQL Server, SQL, XML, AngularJS, TypeScript, JavaScript, Jasmine, Karma
+C# Programming, ASP.NET MVC, ADO.NET Entity Framework, Testing Process / SDLC, HTML5, CSS3, Defect Logging, Microsoft SQL Server, SQL, XML, AngularJS, TypeScript, JavaScript, Jasmine, Karma
